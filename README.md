@@ -6,15 +6,13 @@ vscode 插件，引入 Typora 好用的快捷键
 
 1. <kbd>ctrl/cmd</kbd> + <kbd>1 - 6</kbd> `1到6级标题`
 
-## Release Notes
-
-### 1.0.0
-
-> 完成 1 到 6 级标题
-
 ---
+
+## For developer
+
+> pnpm 管理项目的依赖 && yarn 管理 vsce
 
 ## For more information
 
 - GitHub : [LongYinStudio/vscode-typora-shortcut-key](https://github.com/LongYinStudio/vscode-typora-shortcut-key)
-- 市场/marketplace : [none]()
+- 市场/marketplace : [LongYinStudio.typora-shortcut-key](https://marketplace.visualstudio.com/items?itemName=LongYinStudio.typora-shortcut-key)

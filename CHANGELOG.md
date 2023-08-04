@@ -9,3 +9,13 @@
 ### Bug Fix
 
 - none
+
+## [1.0.1]
+
+### Feature
+
+- none
+
+### Bug Fix
+
+- 更换 icon && 上传到市场/marketplace
