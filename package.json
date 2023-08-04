@@ -2,7 +2,7 @@
   "name": "typora-shortcut-key",
   "displayName": "Typora Shortcut Key",
   "description": "Import Typora's useful Shortcut Key",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "publisher": "LongYinStudio",
   "icon": "typora.png",
   "repository": {
@@ -117,8 +117,5 @@
     "mocha": "^10.2.0",
     "typescript": "^5.1.3"
   },
-  "dependencies": {
-    "@vscode/vsce": "^2.20.0",
-    "global": "^4.4.0"
-  }
+  "dependencies": {}
 }

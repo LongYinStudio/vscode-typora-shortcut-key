@@ -10,7 +10,7 @@ vscode 插件，引入 Typora 好用的快捷键
 
 ## For developer
 
-> pnpm 管理项目的依赖 && yarn 管理 vsce
+> pnpm 管理项目的依赖 && yarn 全局安装 vsce
 
 ## For more information
 
