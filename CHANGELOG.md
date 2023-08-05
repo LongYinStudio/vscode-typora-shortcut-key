@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.2.2]
+
+### Feature
+
+- 快捷图片 img
+
+### Bug Fix
+
+- 完善 README.md
+
 ## [1.1.2]
 
 ### Feature

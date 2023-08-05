@@ -22,6 +22,7 @@ function activate(context) {
   let isExist_h5 = false; // ##### 五级标题
   let isExist_h6 = false; // ###### 六级标题
   let isExist_link = false; // 链接 []()
+  let isExist_img = false; // 图片 ![]()
 
   let key1 = vscode.commands.registerCommand("typora-shortcut-key.key1", () => {
     const editor = vscode.window.activeTextEditor;
@@ -184,6 +185,29 @@ function activate(context) {
       }
     });
   });
+  let img = vscode.commands.registerCommand("typora-shortcut-key.img", () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+      return;
+    }
+    editor.edit((editBuilder) => {
+      if (!isExist_img) {
+        editBuilder.insert(
+          new vscode.Position(getCursorPosition().line, 0),
+          `![图片alt](图片链接 "图片title")`
+        );
+        isExist_img = true;
+      } else {
+        editBuilder.delete(
+          new vscode.Range(
+            new vscode.Position(getCursorPosition().line, 0),
+            new vscode.Position(getCursorPosition().line, 24)
+          )
+        );
+        isExist_img = false;
+      }
+    });
+  });
   context.subscriptions.push(key1);
   context.subscriptions.push(key2);
   context.subscriptions.push(key3);
@@ -191,6 +215,7 @@ function activate(context) {
   context.subscriptions.push(key5);
   context.subscriptions.push(key6);
   context.subscriptions.push(link);
+  context.subscriptions.push(img);
 }
 
 function deactivate() { }
