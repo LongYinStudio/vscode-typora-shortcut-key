@@ -2,7 +2,7 @@
   "name": "typora-shortcut-key",
   "displayName": "Typora Shortcut Key",
   "description": "Import Typora's useful Shortcut Key",
-  "version": "1.0.2",
+  "version": "1.1.2",
   "publisher": "LongYinStudio",
   "icon": "typora.png",
   "repository": {
@@ -60,6 +60,10 @@
       {
         "command": "typora-shortcut-key.key6",
         "title": "H6"
+      },
+      {
+        "command": "typora-shortcut-key.link",
+        "title": "link"
       }
     ],
     "keybindings": [
@@ -97,6 +101,12 @@
         "command": "typora-shortcut-key.key6",
         "key": "ctrl+6",
         "mac": "cmd+6",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "typora-shortcut-key.link",
+        "key": "ctrl+k",
+        "mac": "cmd+k",
         "when": "editorTextFocus"
       }
     ]
