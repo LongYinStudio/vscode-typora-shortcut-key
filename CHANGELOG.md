@@ -1,5 +1,15 @@
 # Change Log
 
+## [1.3.0]
+
+### Feature
+
+- 快捷任务 task
+
+### Bug Fix
+
+- none
+
 ## [1.2.2]
 
 ### Feature

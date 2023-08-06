@@ -9,6 +9,7 @@ vscode 插件，引入 Typora 好用的快捷键
 1. <kbd>ctrl/cmd</kbd> + <kbd>1 - 6</kbd> `1到6级标题`
 2. <kbd>ctrl/cmd</kbd> + <kbd>k</kbd> `链接`
 3. <kbd>ctrl/cmd</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> `图片`
+4. <kbd>ctrl/cmd</kbd> + <kbd>'</kbd> `任务`
 
 ---
 
