@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.4.1]
+
+### Bug Fix
+
+- 解决 lineCode 切换不能删除``而是再套一层的问题
+
 ## [1.4.0]
 
 ### Feature
