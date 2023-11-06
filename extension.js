@@ -239,28 +239,17 @@ function activate(context) {
       const document = editor.document;
       const selection = editor.selection;
       const line = document.lineAt(selection.start.line);
-      const text = line.text;
       const range = new vscode.Range(
         selection.start.line, // 起始行
         line.firstNonWhitespaceCharacterIndex + selection.start.character, // 起始字符
         selection.end.line, // 结束行
         selection.end.character // 结束字符
       );
-      // if (text.includes('`') && range.isEmpty) {
-      //   // 如果选区内存在反引号并且选区为空，则删除反引号
-      //   editor.edit(editBuilder => {
-      //     editBuilder.replace(range, '');
-      //   });
-      // } else {
-      //   // 否则，在选区前后加入反引号
-      //   editor.edit(editBuilder => {
-      //     editBuilder.replace(range, '`' + document.getText(range) + '`');
-      //   });
-      // }
-      if (text.includes('`')) {
+      if (document.getText(range).includes('`')) {
         // 如果选区内存在反引号，则删除反引号
         editor.edit(editBuilder => {
-          editBuilder.replace(range, document.getText(range).slice(1, -1));
+          let newStr = document.getText(range).replace(/`/g, '');
+          editBuilder.replace(range, newStr);
         });
       } else {
         // 否则，在选区前后加入反引号
