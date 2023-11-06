@@ -2,7 +2,7 @@
   "name": "typora-shortcut-key",
   "displayName": "Typora Shortcut Key",
   "description": "Import Typora's useful Shortcut Key",
-  "version": "1.4.3",
+  "version": "1.5.0",
   "publisher": "LongYinStudio",
   "icon": "typora.png",
   "repository": {
@@ -76,6 +76,10 @@
       {
         "command": "typora-shortcut-key.lineCode",
         "title": "lineCode"
+      },
+      {
+        "command": "typora-shortcut-key.code",
+        "title": "code"
       }
     ],
     "keybindings": [
@@ -137,6 +141,12 @@
         "command": "typora-shortcut-key.lineCode",
         "key": "alt+`",
         "mac": "alt+`",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "typora-shortcut-key.code",
+        "key": "alt+shift+`",
+        "mac": "alt+shift+`",
         "when": "editorTextFocus"
       }
     ]

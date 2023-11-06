@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.5.0]
+
+### Feature
+
+- 快捷代码块
+
 ## [1.4.3]
 
 ### Bug Fix

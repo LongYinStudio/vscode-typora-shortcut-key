@@ -9,6 +9,7 @@ vscode 插件，引入 Typora 好用的快捷键
 3. <kbd>ctrl/cmd</kbd> + <kbd>alt/option</kbd> + <kbd>i</kbd> `图片`
 4. <kbd>ctrl/cmd</kbd> + <kbd>'</kbd> `任务`
 5. 选中文字 按<kbd>alt/option</kbd> + <kbd>\`</kbd> 切换 `行内代码`
+6. <kbd>alt/option</kbd> + <kbd>shift</kbd> + <kbd>\`</kbd> `代码块`
 
 > 快捷键冲突，请自行修改
 

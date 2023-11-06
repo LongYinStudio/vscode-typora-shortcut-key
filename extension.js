@@ -23,7 +23,7 @@ function activate(context) {
   let isExist_h6 = false; // ###### 六级标题
   let isExist_link = false; // 链接 []()
   let isExist_img = false; // 图片 ![]()
-  let isExist_task = false; // 任务/复选框 - [x
+  let isExist_task = false; // 任务/复选框 - [x]
 
   let key1 = vscode.commands.registerCommand("typora-shortcut-key.key1", () => {
     const editor = vscode.window.activeTextEditor;
@@ -259,6 +259,27 @@ function activate(context) {
       }
     }
   });
+  // 代码块
+  let code = vscode.commands.registerCommand("typora-shortcut-key.code", () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) {
+      return;
+    }
+    editor.edit((editBuilder) => {
+      editBuilder.insert(
+        new vscode.Position(getCursorPosition().line, getCursorPosition().character + 1),
+        `
+\`\`\`语言类型
+代码块内容
+\`\`\``
+      );
+    }).then(() => {
+      // then 将光标选中语言类型
+      let newStartPosition = new vscode.Position(getCursorPosition().line - 2, 3);
+      let newEndPosition = new vscode.Position(getCursorPosition().line - 2, 7);
+      editor.selection = new vscode.Selection(newStartPosition, newEndPosition);
+    });
+  });
   context.subscriptions.push(key1);
   context.subscriptions.push(key2);
   context.subscriptions.push(key3);
@@ -269,6 +290,7 @@ function activate(context) {
   context.subscriptions.push(img);
   context.subscriptions.push(task);
   context.subscriptions.push(lineCode);
+  context.subscriptions.push(code);
 }
 
 function deactivate() { }
