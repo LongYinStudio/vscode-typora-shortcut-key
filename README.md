@@ -10,6 +10,7 @@ vscode 插件，引入 Typora 好用的快捷键
 2. <kbd>ctrl/cmd</kbd> + <kbd>k</kbd> `链接`
 3. <kbd>ctrl/cmd</kbd> + <kbd>alt</kbd> + <kbd>i</kbd> `图片`
 4. <kbd>ctrl/cmd</kbd> + <kbd>'</kbd> `任务`
+5. 选中文字 按<kbd>ctrl/cmd</kbd> + <kbd>\`</kbd> `行内代码`
 
 ---
 

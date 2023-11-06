@@ -23,7 +23,7 @@ function activate(context) {
   let isExist_h6 = false; // ###### 六级标题
   let isExist_link = false; // 链接 []()
   let isExist_img = false; // 图片 ![]()
-  let isExist_task = false; // 任务/复选框 - [x]
+  let isExist_task = false; // 任务/复选框 - [x
 
   let key1 = vscode.commands.registerCommand("typora-shortcut-key.key1", () => {
     const editor = vscode.window.activeTextEditor;
@@ -232,6 +232,33 @@ function activate(context) {
       }
     });
   });
+  // 选中文字，按ctrl/cmd+`实现行内代码-->`内容`
+  let lineCode = vscode.commands.registerCommand('typora-shortcut-key.lineCode', () => {
+    const editor = vscode.window.activeTextEditor;
+    if (editor) {
+      const document = editor.document;
+      const selection = editor.selection;
+      const line = document.lineAt(selection.start.line);
+      const text = line.text;
+      const range = new vscode.Range(
+        selection.start.line, // 起始行
+        line.firstNonWhitespaceCharacterIndex + selection.start.character, // 起始字符
+        selection.end.line, // 结束行
+        selection.end.character // 结束字符
+      );
+      if (text.includes('`') && range.isEmpty) {
+        // 如果选区内存在反引号并且选区为空，则删除反引号
+        editor.edit(editBuilder => {
+          editBuilder.replace(range, '');
+        });
+      } else {
+        // 否则，在选区前后加入反引号
+        editor.edit(editBuilder => {
+          editBuilder.replace(range, '`' + document.getText(range) + '`');
+        });
+      }
+    }
+  });
   context.subscriptions.push(key1);
   context.subscriptions.push(key2);
   context.subscriptions.push(key3);
@@ -241,6 +268,7 @@ function activate(context) {
   context.subscriptions.push(link);
   context.subscriptions.push(img);
   context.subscriptions.push(task);
+  context.subscriptions.push(lineCode);
 }
 
 function deactivate() { }

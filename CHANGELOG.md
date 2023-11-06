@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.4.0]
+
+### Feature
+
+- 选中快捷行内代码 lineCode
+
 ## [1.3.0]
 
 ### Feature
