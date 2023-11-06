@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.4.3]
+
+### Bug Fix
+
+- 将 lineCode 默认快捷键改为 alt/option + \`
+
 ## [1.4.2]
 
 ### Bug Fix
