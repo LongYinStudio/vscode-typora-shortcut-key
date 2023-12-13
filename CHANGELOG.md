@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.5.1]
+
+### Bug Fix
+
+- 优化 lineCode 和 link
+
 ## [1.5.0]
 
 ### Feature

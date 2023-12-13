@@ -184,6 +184,11 @@ function activate(context) {
         );
         isExist_link = false;
       }
+    }).then(() => {
+      // then 将光标选中语言类型
+      let newStartPosition = new vscode.Position(getCursorPosition().line, 1);
+      let newEndPosition = new vscode.Position(getCursorPosition().line, 7);
+      editor.selection = new vscode.Selection(newStartPosition, newEndPosition);
     });
   });
   let img = vscode.commands.registerCommand("typora-shortcut-key.img", () => {
@@ -245,18 +250,29 @@ function activate(context) {
         selection.end.line, // 结束行
         selection.end.character // 结束字符
       );
-      if (document.getText(range).includes('`')) {
-        // 如果选区内存在反引号，则删除反引号
+      if (selection.isEmpty) {
         editor.edit(editBuilder => {
-          let newStr = document.getText(range).replace(/`/g, '');
-          editBuilder.replace(range, newStr);
+          editBuilder.insert(new vscode.Position(getCursorPosition().line, getCursorPosition().character), "\`\`");
+        }).then(() => {
+          // then 将光标移到``之间
+          let newPosition = new vscode.Position(range.start.line, range.start.character + 1);
+          editor.selection = new vscode.Selection(newPosition, newPosition);
         });
       } else {
-        // 否则，在选区前后加入反引号
-        editor.edit(editBuilder => {
-          editBuilder.replace(range, '`' + document.getText(range) + '`');
-        });
+        if (document.getText(range).includes('`')) {
+          // 如果选区内存在反引号，则删除反引号
+          editor.edit(editBuilder => {
+            let newStr = document.getText(range).replace(/`/g, '');
+            editBuilder.replace(range, newStr);
+          });
+        } else {
+          // 否则，在选区前后加入反引号
+          editor.edit(editBuilder => {
+            editBuilder.replace(range, '`' + document.getText(range) + '`');
+          });
+        }
       }
+
     }
   });
   // 代码块
