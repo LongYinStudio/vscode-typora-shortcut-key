@@ -2,7 +2,7 @@
   "name": "typora-shortcut-key",
   "displayName": "Typora Shortcut Key",
   "description": "Import Typora's useful Shortcut Key",
-  "version": "1.5.1",
+  "version": "1.6.0",
   "publisher": "LongYinStudio",
   "icon": "typora.png",
   "repository": {
@@ -133,8 +133,8 @@
       },
       {
         "command": "typora-shortcut-key.task",
-        "key": "ctrl+'",
-        "mac": "cmd+'",
+        "key": "alt+'",
+        "mac": "alt+'",
         "when": "editorTextFocus"
       },
       {
@@ -149,7 +149,18 @@
         "mac": "alt+shift+`",
         "when": "editorTextFocus"
       }
-    ]
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "Typora Shortcut Key Setting",
+      "properties": {
+        "typoraKey.comment": {
+          "type": "boolean",
+          "default": true,
+          "description": "开启注释"
+        }
+      }
+    }
   },
   "scripts": {
     "lint": "eslint .",

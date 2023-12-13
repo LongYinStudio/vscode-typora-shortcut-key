@@ -1,5 +1,12 @@
 # Change Log
 
+## [1.6.0]
+
+### Feature
+
+- 新增注释配置
+- 将 task 默认快捷键改为 alt/option + '
+
 ## [1.5.1]
 
 ### Bug Fix

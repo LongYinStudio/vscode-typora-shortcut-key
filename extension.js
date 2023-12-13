@@ -169,21 +169,40 @@ function activate(context) {
       return;
     }
     editor.edit((editBuilder) => {
-      if (!isExist_link) {
-        editBuilder.insert(
-          new vscode.Position(getCursorPosition().line, 0),
-          `[超链接显示名](超链接地址 "超链接title")`
-        );
-        isExist_link = true;
-      } else {
-        editBuilder.delete(
-          new vscode.Range(
+      if (vscode.workspace.getConfiguration("typoraKey").get("comment")) {
+        if (!isExist_link) {
+          editBuilder.insert(
             new vscode.Position(getCursorPosition().line, 0),
-            new vscode.Position(getCursorPosition().line, 26)
-          )
-        );
-        isExist_link = false;
+            `[超链接显示名](超链接地址 "超链接title")`
+          );
+          isExist_link = true;
+        } else {
+          editBuilder.delete(
+            new vscode.Range(
+              new vscode.Position(getCursorPosition().line, 0),
+              new vscode.Position(getCursorPosition().line, 26)
+            )
+          );
+          isExist_link = false;
+        }
+      } else {
+        if (!isExist_link) {
+          editBuilder.insert(
+            new vscode.Position(getCursorPosition().line, 0),
+            `[]()`
+          );
+          isExist_link = true;
+        } else {
+          editBuilder.delete(
+            new vscode.Range(
+              new vscode.Position(getCursorPosition().line, 0),
+              new vscode.Position(getCursorPosition().line, 4)
+            )
+          );
+          isExist_link = false;
+        }
       }
+
     }).then(() => {
       // then 将光标选中语言类型
       let newStartPosition = new vscode.Position(getCursorPosition().line, 1);
@@ -197,20 +216,38 @@ function activate(context) {
       return;
     }
     editor.edit((editBuilder) => {
-      if (!isExist_img) {
-        editBuilder.insert(
-          new vscode.Position(getCursorPosition().line, 0),
-          `![图片alt](图片链接 "图片title")`
-        );
-        isExist_img = true;
-      } else {
-        editBuilder.delete(
-          new vscode.Range(
+      if (vscode.workspace.getConfiguration("typoraKey").get("comment")) {
+        if (!isExist_img) {
+          editBuilder.insert(
             new vscode.Position(getCursorPosition().line, 0),
-            new vscode.Position(getCursorPosition().line, 24)
-          )
-        );
-        isExist_img = false;
+            `![图片alt](图片链接 "图片title")`
+          );
+          isExist_img = true;
+        } else {
+          editBuilder.delete(
+            new vscode.Range(
+              new vscode.Position(getCursorPosition().line, 0),
+              new vscode.Position(getCursorPosition().line, 24)
+            )
+          );
+          isExist_img = false;
+        }
+      } else {
+        if (!isExist_img) {
+          editBuilder.insert(
+            new vscode.Position(getCursorPosition().line, 0),
+            `![]()`
+          );
+          isExist_img = true;
+        } else {
+          editBuilder.delete(
+            new vscode.Range(
+              new vscode.Position(getCursorPosition().line, 0),
+              new vscode.Position(getCursorPosition().line, 5)
+            )
+          );
+          isExist_img = false;
+        }
       }
     });
   });
@@ -220,20 +257,38 @@ function activate(context) {
       return;
     }
     editor.edit((editBuilder) => {
-      if (!isExist_task) {
-        editBuilder.insert(
-          new vscode.Position(getCursorPosition().line, 0),
-          `- [x] 任务`
-        );
-        isExist_task = true;
-      } else {
-        editBuilder.delete(
-          new vscode.Range(
+      if (vscode.workspace.getConfiguration("typoraKey").get("comment")) {
+        if (!isExist_task) {
+          editBuilder.insert(
             new vscode.Position(getCursorPosition().line, 0),
-            new vscode.Position(getCursorPosition().line, 8)
-          )
-        );
-        isExist_task = false;
+            `- [x] 任务`
+          );
+          isExist_task = true;
+        } else {
+          editBuilder.delete(
+            new vscode.Range(
+              new vscode.Position(getCursorPosition().line, 0),
+              new vscode.Position(getCursorPosition().line, 8)
+            )
+          );
+          isExist_task = false;
+        }
+      } else {
+        if (!isExist_task) {
+          editBuilder.insert(
+            new vscode.Position(getCursorPosition().line, 0),
+            `- [x] `
+          );
+          isExist_task = true;
+        } else {
+          editBuilder.delete(
+            new vscode.Range(
+              new vscode.Position(getCursorPosition().line, 0),
+              new vscode.Position(getCursorPosition().line, 6)
+            )
+          );
+          isExist_task = false;
+        }
       }
     });
   });
@@ -281,20 +336,36 @@ function activate(context) {
     if (!editor) {
       return;
     }
-    editor.edit((editBuilder) => {
-      editBuilder.insert(
-        new vscode.Position(getCursorPosition().line, getCursorPosition().character + 1),
-        `
+    if (vscode.workspace.getConfiguration("typoraKey").get("comment")) {
+      editor.edit((editBuilder) => {
+        editBuilder.insert(
+          new vscode.Position(getCursorPosition().line, getCursorPosition().character + 1),
+          `
 \`\`\`语言类型
 代码块内容
 \`\`\``
-      );
-    }).then(() => {
-      // then 将光标选中语言类型
-      let newStartPosition = new vscode.Position(getCursorPosition().line - 2, 3);
-      let newEndPosition = new vscode.Position(getCursorPosition().line - 2, 7);
-      editor.selection = new vscode.Selection(newStartPosition, newEndPosition);
-    });
+        );
+      }).then(() => {
+        // then 将光标选中语言类型
+        let newStartPosition = new vscode.Position(getCursorPosition().line - 2, 3);
+        let newEndPosition = new vscode.Position(getCursorPosition().line - 2, 7);
+        editor.selection = new vscode.Selection(newStartPosition, newEndPosition);
+      });
+    } else {
+      editor.edit((editBuilder) => {
+        editBuilder.insert(
+          new vscode.Position(getCursorPosition().line, getCursorPosition().character + 1),
+          `
+\`\`\`
+
+\`\`\``
+        );
+      }).then(() => {
+        // then 将光标移到语言类型
+        let newPosition = new vscode.Position(getCursorPosition().line - 2, getCursorPosition().character);
+        editor.selection = new vscode.Selection(newPosition, newPosition);
+      });
+    }
   });
   context.subscriptions.push(key1);
   context.subscriptions.push(key2);
