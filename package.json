@@ -2,7 +2,7 @@
   "name": "typora-shortcut-key",
   "displayName": "Typora Shortcut Key",
   "description": "Import Typora's useful Shortcut Key",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "publisher": "LongYinStudio",
   "icon": "typora.png",
   "repository": {

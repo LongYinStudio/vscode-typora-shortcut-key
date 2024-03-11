@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.7.1]
+
+### Bug Fix
+
+> Merge pull request #4 from zhuozhiyongde/main
+
+- 完善 README & Markdown 链接
+
 ## [1.7.0]
 
 ### Feature
