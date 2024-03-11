@@ -10,9 +10,9 @@ vscode 插件，引入 Typora 好用的快捷键
 4. <kbd>alt/option</kbd> + <kbd>'</kbd>： `任务`
 5. <kbd>alt/option</kbd> + <kbd>\`</kbd>： 切换 `行内代码`，当选中文字时，自动包裹之，再按可复原
 6. <kbd>alt/option</kbd> + <kbd>shift</kbd> + <kbd>\`</kbd>： `代码块`
-7. <kbd>alt/option</kbd> + <kbd>m</kbd>： 切换 `行内 LaTeX`，当选中文字时，自动包裹之，再按可复原
-9. <kbd>alt/option</kbd> + <kbd>shift</kbd> + <kbd>m</kbd> `公式块`，再按可复原
-10. <kbd>alt/option</kbd> + <kbd>b</kbd>： 切换 `加粗`，当选中文字时，自动包裹之，再按可复原
+7. <kbd>alt/option</kbd> + <kbd>m</kbd>： 切换 `行内 LaTeX`，当选中文字时，自动包裹之，再按可复原 - Contributor:[@zhuozhiyongde](https://github.com/zhuozhiyongde)
+9. <kbd>alt/option</kbd> + <kbd>shift</kbd> + <kbd>m</kbd> `公式块`，再按可复原 - Contributor:[@zhuozhiyongde](https://github.com/zhuozhiyongde)
+10. <kbd>alt/option</kbd> + <kbd>b</kbd>： 切换 `加粗`，当选中文字时，自动包裹之，再按可复原，- Contributor:[@zhuozhiyongde](https://github.com/zhuozhiyongde)
 
 > 快捷键冲突，请自行修改。
 >
