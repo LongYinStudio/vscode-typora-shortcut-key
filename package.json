@@ -1,182 +1,204 @@
 {
-  "name": "typora-shortcut-key",
-  "displayName": "Typora Shortcut Key",
-  "description": "Import Typora's useful Shortcut Key",
-  "version": "1.6.0",
-  "publisher": "LongYinStudio",
-  "icon": "typora.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/LongYinStudio/vscode-typora-shortcut-key"
-  },
-  "engines": {
-    "vscode": "^1.81.0"
-  },
-  "categories": [
-    "Keymaps"
-  ],
-  "keywords": [
-    "typora",
-    "shortcut",
-    "key",
-    "markdown",
-    "md",
-    ".md"
-  ],
-  "activationEvents": [
-    "onLanguage:markdown"
-  ],
-  "main": "./extension.js",
-  "contributes": {
-    "languages": [
-      {
-        "id": "markdown",
-        "extensions": [
-          ".md"
-        ]
-      }
+    "name": "typora-shortcut-key",
+    "displayName": "Typora Shortcut Key",
+    "description": "Import Typora's useful Shortcut Key",
+    "version": "1.6.0",
+    "publisher": "LongYinStudio",
+    "icon": "typora.png",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/LongYinStudio/vscode-typora-shortcut-key"
+    },
+    "engines": {
+        "vscode": "^1.81.0"
+    },
+    "categories": [
+        "Keymaps"
     ],
-    "commands": [
-      {
-        "command": "typora-shortcut-key.key1",
-        "title": "H1"
-      },
-      {
-        "command": "typora-shortcut-key.key2",
-        "title": "H2"
-      },
-      {
-        "command": "typora-shortcut-key.key3",
-        "title": "H3"
-      },
-      {
-        "command": "typora-shortcut-key.key4",
-        "title": "H4"
-      },
-      {
-        "command": "typora-shortcut-key.key5",
-        "title": "H5"
-      },
-      {
-        "command": "typora-shortcut-key.key6",
-        "title": "H6"
-      },
-      {
-        "command": "typora-shortcut-key.link",
-        "title": "link"
-      },
-      {
-        "command": "typora-shortcut-key.img",
-        "title": "img"
-      },
-      {
-        "command": "typora-shortcut-key.task",
-        "title": "task"
-      },
-      {
-        "command": "typora-shortcut-key.lineCode",
-        "title": "lineCode"
-      },
-      {
-        "command": "typora-shortcut-key.code",
-        "title": "code"
-      }
+    "keywords": [
+        "typora",
+        "shortcut",
+        "key",
+        "markdown",
+        "md",
+        ".md"
     ],
-    "keybindings": [
-      {
-        "command": "typora-shortcut-key.key1",
-        "key": "ctrl+1",
-        "mac": "cmd+1",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.key2",
-        "key": "ctrl+2",
-        "mac": "cmd+2",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.key3",
-        "key": "ctrl+3",
-        "mac": "cmd+3",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.key4",
-        "key": "ctrl+4",
-        "mac": "cmd+4",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.key5",
-        "key": "ctrl+5",
-        "mac": "cmd+5",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.key6",
-        "key": "ctrl+6",
-        "mac": "cmd+6",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.link",
-        "key": "ctrl+k",
-        "mac": "cmd+k",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.img",
-        "key": "ctrl+alt+i",
-        "mac": "cmd+alt+i",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.task",
-        "key": "alt+'",
-        "mac": "alt+'",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.lineCode",
-        "key": "alt+`",
-        "mac": "alt+`",
-        "when": "editorTextFocus"
-      },
-      {
-        "command": "typora-shortcut-key.code",
-        "key": "alt+shift+`",
-        "mac": "alt+shift+`",
-        "when": "editorTextFocus"
-      }
+    "activationEvents": [
+        "onLanguage:markdown"
     ],
-    "configuration": {
-      "type": "object",
-      "title": "Typora Shortcut Key Setting",
-      "properties": {
-        "typoraKey.comment": {
-          "type": "boolean",
-          "default": true,
-          "description": "开启注释"
+    "main": "./extension.js",
+    "contributes": {
+        "languages": [
+            {
+                "id": "markdown",
+                "extensions": [
+                    ".md"
+                ]
+            }
+        ],
+        "commands": [
+            {
+                "command": "typora-shortcut-key.key1",
+                "title": "H1"
+            },
+            {
+                "command": "typora-shortcut-key.key2",
+                "title": "H2"
+            },
+            {
+                "command": "typora-shortcut-key.key3",
+                "title": "H3"
+            },
+            {
+                "command": "typora-shortcut-key.key4",
+                "title": "H4"
+            },
+            {
+                "command": "typora-shortcut-key.key5",
+                "title": "H5"
+            },
+            {
+                "command": "typora-shortcut-key.key6",
+                "title": "H6"
+            },
+            {
+                "command": "typora-shortcut-key.link",
+                "title": "link"
+            },
+            {
+                "command": "typora-shortcut-key.img",
+                "title": "img"
+            },
+            {
+                "command": "typora-shortcut-key.task",
+                "title": "task"
+            },
+            {
+                "command": "typora-shortcut-key.bold",
+                "title": "bold"
+            },
+            {
+                "command": "typora-shortcut-key.lineCode",
+                "title": "lineCode"
+            },
+            {
+                "command": "typora-shortcut-key.code",
+                "title": "code"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "typora-shortcut-key.key1",
+                "key": "ctrl+1",
+                "mac": "cmd+1",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.key2",
+                "key": "ctrl+2",
+                "mac": "cmd+2",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.key3",
+                "key": "ctrl+3",
+                "mac": "cmd+3",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.key4",
+                "key": "ctrl+4",
+                "mac": "cmd+4",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.key5",
+                "key": "ctrl+5",
+                "mac": "cmd+5",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.key6",
+                "key": "ctrl+6",
+                "mac": "cmd+6",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.link",
+                "key": "ctrl+k",
+                "mac": "cmd+k",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.img",
+                "key": "ctrl+alt+i",
+                "mac": "cmd+alt+i",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.task",
+                "key": "alt+'",
+                "mac": "alt+'",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.bold",
+                "key": "alt+b",
+                "mac": "alt+b",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.lineMath",
+                "key": "alt+m",
+                "mac": "alt+m",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.lineCode",
+                "key": "alt+`",
+                "mac": "alt+`",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.code",
+                "key": "alt+shift+`",
+                "mac": "alt+shift+`",
+                "when": "editorTextFocus"
+            },
+            {
+                "command": "typora-shortcut-key.math",
+                "key": "alt+shift+m",
+                "mac": "alt+shift+m",
+                "when": "editorTextFocus"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Typora Shortcut Key Setting",
+            "properties": {
+                "typoraKey.comment": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "开启注释"
+                }
+            }
         }
-      }
-    }
-  },
-  "scripts": {
-    "lint": "eslint .",
-    "pretest": "pnpm run lint",
-    "test": "node ./test/runTest.js"
-  },
-  "devDependencies": {
-    "@types/glob": "^8.1.0",
-    "@types/mocha": "^10.0.1",
-    "@types/node": "20.2.5",
-    "@types/vscode": "^1.81.0",
-    "@vscode/test-electron": "^2.3.2",
-    "eslint": "^8.41.0",
-    "glob": "^8.1.0",
-    "mocha": "^10.2.0",
-    "typescript": "^5.1.3"
-  },
-  "dependencies": {}
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "pretest": "pnpm run lint",
+        "test": "node ./test/runTest.js"
+    },
+    "devDependencies": {
+        "@types/glob": "^8.1.0",
+        "@types/mocha": "^10.0.1",
+        "@types/node": "20.2.5",
+        "@types/vscode": "^1.81.0",
+        "@vscode/test-electron": "^2.3.2",
+        "eslint": "^8.41.0",
+        "glob": "^8.1.0",
+        "mocha": "^10.2.0",
+        "typescript": "^5.1.3"
+    },
+    "dependencies": {}
 }
