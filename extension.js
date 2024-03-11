@@ -207,7 +207,6 @@ function activate(context) {
             await vscode.env.clipboard.readText().then((clipText) => {
                 // 此处使用剪贴板中的文本
                 selection = clipText;
-                console.log(clipText);
             });
         }
 
@@ -235,8 +234,14 @@ function activate(context) {
                     editBuilder.delete(editor.selection);
                     editBuilder.insert(new vscode.Position(cursor.line, cursor.character), `[](${selection})`);
                 } else {
-                    // 如果选中的内容不是 URL，则插入空链接
-                    editBuilder.insert(new vscode.Position(cursor.line, cursor.character), `[]()`);
+                    // 如果选中的内容不是 URL，则插入空链接或者选入的内容
+                    selection = editor.document.getText(editor.selection);
+                    if (selection) {
+                        editBuilder.delete(editor.selection);
+                        editBuilder.insert(new vscode.Position(cursor.line, cursor.character), `[${selection}]()`);
+                    } else {
+                        editBuilder.insert(new vscode.Position(cursor.line, cursor.character), `[]()`);
+                    }
                 }
                 let newPosition = new vscode.Position(cursor.line, cursor.character);
                 editor.selection = new vscode.Selection(newPosition, newPosition);
@@ -338,7 +343,6 @@ function activate(context) {
                 selection.end.line,
                 selection.end.character
             );
-            console.log('bold！');
             if (selection.isEmpty) {
                 const currentPosition = editor.selection.active;
                 const textBeforeCursor = document.getText(
@@ -507,7 +511,6 @@ function activate(context) {
                     )
                 );
 
-                console.log('here');
                 if (textBeforeCursor === '`' && textAfterCursor === '`') {
                     // 如果光标前后字符都是反引号，则删除它们
                     editor.edit((editBuilder) => {
