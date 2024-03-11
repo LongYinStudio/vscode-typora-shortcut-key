@@ -1,5 +1,14 @@
 # Change Log
 
+## [1.7.0]
+
+### Feature
+
+> Merge pull request #3 from zhuozhiyongde/main
+
+- 加粗
+- 数学公式
+
 ## [1.6.0]
 
 ### Feature
