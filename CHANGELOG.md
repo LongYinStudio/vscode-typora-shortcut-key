@@ -1,5 +1,13 @@
 # Change Log
 
+## [1.7.2]
+
+### Bug Fix
+
+> Fix bug #4 from zhuozhiyongde/main
+
+- 重写 bold , 以修复当首行有缩进是加粗位置不对的问题
+
 ## [1.7.1]
 
 ### Bug Fix

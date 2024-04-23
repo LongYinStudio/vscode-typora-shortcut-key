@@ -333,76 +333,29 @@ function activate(context) {
     // 选中文字，按 alt+b 实现行内代码-->**内容**
     let bold = vscode.commands.registerCommand('typora-shortcut-key.bold', () => {
         const editor = vscode.window.activeTextEditor;
-        if (editor) {
-            const document = editor.document;
-            const selection = editor.selection;
-            const line = document.lineAt(selection.start.line);
-            const range = new vscode.Range(
-                selection.start.line,
-                line.firstNonWhitespaceCharacterIndex + selection.start.character,
-                selection.end.line,
-                selection.end.character
-            );
-            if (selection.isEmpty) {
-                const currentPosition = editor.selection.active;
-                const textBeforeCursor = document.getText(
-                    new vscode.Range(
-                        currentPosition.line,
-                        Math.max(currentPosition.character - 2, 0),
-                        currentPosition.line,
-                        currentPosition.character
-                    )
-                );
-                const textAfterCursor = document.getText(
-                    new vscode.Range(
-                        currentPosition.line,
-                        currentPosition.character,
-                        currentPosition.line,
-                        currentPosition.character + 2
-                    )
-                );
-
-                if (textBeforeCursor === '**' && textAfterCursor === '**') {
-                    // 如果光标前后字符都是加粗标记，则删除它们
-                    editor.edit((editBuilder) => {
-                        editBuilder.delete(
-                            new vscode.Range(
-                                currentPosition.line,
-                                currentPosition.character - 2,
-                                currentPosition.line,
-                                currentPosition.character + 2
-                            )
-                        );
-                    });
-                } else {
-                    // 原有的代码逻辑，如插入加粗标记等
-                    editor
-                        .edit((editBuilder) => {
-                            editBuilder.insert(
-                                new vscode.Position(getCursorPosition().line, getCursorPosition().character),
-                                '****'
-                            );
-                        })
-                        .then(() => {
-                            let newPosition = new vscode.Position(range.start.line, range.start.character + 2);
-                            editor.selection = new vscode.Selection(newPosition, newPosition);
-                        });
-                }
-            } else {
-                if (document.getText(range).includes('**')) {
-                    // 如果选区内存在加粗标记，则删除加粗标记
-                    editor.edit((editBuilder) => {
-                        let newStr = document.getText(range).replace(/\*\*/g, '');
-                        editBuilder.replace(range, newStr);
-                    });
-                } else {
-                    // 否则，在选区前后加入加粗标记
-                    editor.edit((editBuilder) => {
-                        editBuilder.replace(range, '**' + document.getText(range) + '**');
-                    });
-                }
-            }
+        if (!editor) {
+            return;
         }
+        const document = editor.document;
+        const selections = editor.selections;
+        editor.edit(editBuilder => {
+            selections.forEach(selection => {
+                const startPosition = document.offsetAt(new vscode.Position(selection.start.line, 0));
+                const startPositionWithIndent = startPosition + selection.start.character;
+                const endPosition = document.offsetAt(new vscode.Position(selection.end.line, selection.end.character));
+                const textInSelection = document.getText(new vscode.Range(selection.start, selection.end));
+                let newText;
+                if (textInSelection.includes('**')) {
+                    newText = textInSelection.replace(/\*\*/g, '');
+                } else {
+                    newText = `**${textInSelection.trim()}**`;
+                }
+                editBuilder.replace(
+                    new vscode.Range(document.positionAt(startPositionWithIndent), document.positionAt(endPosition)),
+                    newText
+                );
+            });
+        });
     });
     // 选中文字，按 alt+m 实现行内代码-->$内容$
     let lineMath = vscode.commands.registerCommand('typora-shortcut-key.lineMath', () => {
@@ -683,7 +636,7 @@ $$`;
     context.subscriptions.push(math);
 }
 
-function deactivate() {}
+function deactivate() { }
 
 module.exports = {
     activate,
