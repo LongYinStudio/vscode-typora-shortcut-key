@@ -4,7 +4,7 @@
 
 ### Bug Fix
 
-> Fix bug #4 from zhuozhiyongde/main
+> Fix bug #5 from zhuozhiyongde/main
 
 - 重写 bold , 以修复当首行有缩进是加粗位置不对的问题
 
