@@ -1,5 +1,11 @@
 # Change Log
 
+## [1.7.3]
+
+### Bug Fix (Issue #6)
+
+- 将插件限制在 md、mdx 文件中
+
 ## [1.7.2]
 
 ### Bug Fix

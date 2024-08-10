@@ -2,7 +2,7 @@
   "name": "typora-shortcut-key",
   "displayName": "Typora Shortcut Key",
   "description": "Import Typora's useful Shortcut Key",
-  "version": "1.7.2",
+  "version": "1.7.3",
   "publisher": "LongYinStudio",
   "icon": "typora.png",
   "repository": {
@@ -24,7 +24,8 @@
     ".md"
   ],
   "activationEvents": [
-    "onLanguage:markdown"
+    "onLanguage:markdown",
+    "onLanguage:mdx"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -32,7 +33,8 @@
       {
         "id": "markdown",
         "extensions": [
-          ".md"
+          ".md",
+          ".mdx"
         ]
       }
     ],
@@ -91,85 +93,85 @@
         "command": "typora-shortcut-key.key1",
         "key": "ctrl+1",
         "mac": "cmd+1",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.key2",
         "key": "ctrl+2",
         "mac": "cmd+2",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.key3",
         "key": "ctrl+3",
         "mac": "cmd+3",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.key4",
         "key": "ctrl+4",
         "mac": "cmd+4",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.key5",
         "key": "ctrl+5",
         "mac": "cmd+5",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.key6",
         "key": "ctrl+6",
         "mac": "cmd+6",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.link",
         "key": "ctrl+k",
         "mac": "cmd+k",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.img",
         "key": "ctrl+alt+i",
         "mac": "cmd+alt+i",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.task",
         "key": "alt+'",
         "mac": "alt+'",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.bold",
         "key": "alt+b",
         "mac": "alt+b",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.lineMath",
         "key": "alt+m",
         "mac": "alt+m",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.lineCode",
         "key": "alt+`",
         "mac": "alt+`",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.code",
         "key": "alt+shift+`",
         "mac": "alt+shift+`",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       },
       {
         "command": "typora-shortcut-key.math",
         "key": "alt+shift+m",
         "mac": "alt+shift+m",
-        "when": "editorTextFocus"
+        "when": "editorTextFocus && !editorReadonly && editorLangId =~ /^markdown$|^mdx$/"
       }
     ],
     "configuration": {
